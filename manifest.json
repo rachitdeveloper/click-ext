@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Auto Clicker Extension",
+  "version": "1.0",
+  "permissions": ["tabs", "scripting"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://example.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_title": "Auto Clicker"
+  }
+}
