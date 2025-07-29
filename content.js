@@ -1,11 +1,22 @@
 function autoClicker() {
-    location.reload();
-
-    setTimeout(() => {
-        const btn = document.querySelector("button.YOUR_SELECTOR"); // Change selector
-        if (btn) btn.click();
-    }, 5000);
+  console.log("🔄 Reloading…");
+  location.reload();
 }
 
-setInterval(autoClicker, 3600000); // Every 1 hour
-autoClicker(); // Run first time
+function clickButton() {
+  document.querySelectorAll("button").forEach(btn => {
+    if (btn.innerText.toLowerCase().includes("prove")) {
+      btn.click();
+      console.log("✅ ‘Prove’ clicked");
+    }
+  });
+}
+
+// first run 5s after page‑load
+setTimeout(clickButton, 5000);
+
+// every hour: reload, then click after 5s
+setInterval(()=>{
+  autoClicker();
+  setTimeout(clickButton, 5000);
+}, 3600000);
